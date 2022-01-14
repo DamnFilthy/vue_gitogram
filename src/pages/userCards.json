@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "username": "One User",
+    "userphoto": "https://picsum.photos/300/300",
+    "title": "One Some title",
+    "subtitle":"One Some Subtitle",
+    "stars": 17,
+    "forks": 23,
+    "date": "15 may",
+    "issues": {
+     "0": {
+       "author": "Julia",
+       "body": "Enable performance measuring in production, at the user's request"
+     },
+      "1": {
+        "author": "Mikel",
+        "body": "Lorem  bla bla bla"
+      }
+    }
+  },
+  {
+    "id": 1,
+    "username": "Two User",
+    "userphoto": "https://picsum.photos/300/300",
+    "title":  "Two Some title",
+    "subtitle": "Two Some Subtitle",
+    "stars":  160,
+    "forks": 4,
+    "date": "17 may",
+    "issues": {
+      "0": {
+        "author": "Julia",
+        "body": "Enable performance measuring in production, at the user's request"
+      },
+      "1": {
+        "author": "Mikel",
+        "body": "Lorem  bla bla bla"
+      }
+    }
+  },
+  {
+    "id": 2,
+    "username": "Three User",
+    "userphoto": "https://picsum.photos/300/300",
+    "title":  "Three Some title",
+    "subtitle": "Three Some Subtitle",
+    "stars":  230,
+    "forks": 49,
+    "date": "14 may",
+    "issues": {
+      "0": {
+        "author": "Julia",
+        "body": "Enable performance measuring in production, at the user's request"
+      },
+      "1": {
+        "author": "Mikel",
+        "body": "Lorem  bla bla bla"
+      }
+    }
+  }
+]

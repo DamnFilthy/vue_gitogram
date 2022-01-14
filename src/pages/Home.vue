@@ -52,9 +52,28 @@
        </template>
 
      </Header>
-
    </div>
  </div>
+
+  <div class="container">
+    <div class="user-cards-list">
+      <ul>
+        <li v-for="user in userInfo"
+            :key="user.username"
+        >
+          <UserCard :user="user">
+            <template #repo>
+              <div class="repo-title">{{user.title}}</div>
+              <div class="repo-subtitle">{{user.subtitle}}</div>
+              <UserStats :stars="user.stars" :forks="user.forks"/>
+            </template>
+          </UserCard>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
 </div>
 </template>
 
@@ -62,7 +81,12 @@
 import Header from "../components/Header";
 import FriendStory from "../components/FriendStory"
 import Icon from "../icons/Icon"
+
 import friendStories from "./friends.json"
+import userInfo from "./userCards.json"
+
+import UserCard from "../components/UserCard"
+import UserStats from '../components/UserStats'
 
 export default {
   name: 'Home',
@@ -70,10 +94,13 @@ export default {
     Header,
     FriendStory,
     Icon,
+    UserCard,
+    UserStats
   },
   data(){
     return{
-      friendStories
+      friendStories,
+      userInfo
     }
   },
   methods:{
@@ -90,6 +117,7 @@ export default {
   padding-bottom: 33px;
   background: #FAFAFA;
   box-shadow: 0 0.33px 0 rgba(60, 60, 67, 0.29);
+  margin-bottom: 64px;
   &__wrapper{
     display: flex;
     justify-content: space-between;
@@ -134,5 +162,19 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .repo-title{
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 28px;
+    color: #292929;
+    margin-bottom: 15px;
+  }
+  .repo-subtitle{
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 160%;
+    color: #404040;
+    margin-bottom: 32px;
   }
 </style>
