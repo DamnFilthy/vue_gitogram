@@ -43,11 +43,11 @@
         },
         props:{
           stars: {
-            type: String,
+            type: Number,
             required: true
           },
           forks: {
-            type: String,
+            type: Number,
             required: true
           }
         },
