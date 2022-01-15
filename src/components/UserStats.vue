@@ -59,7 +59,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 300px;
+    max-width: 320px;
     border: 1px solid #DADBDC;
     border-radius: 8px;
   }
