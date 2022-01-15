@@ -8,21 +8,23 @@
       <slot name="repo"></slot>
     </div>
 
-    <div class="toggle">Toggle</div>
-    <div class="toggle-info">
-      <ul>
-        <li v-for="issue in user.issues">
-          <span>{{issue.author}}</span>
-          <span>{{issue.body}}</span>
-        </li>
-      </ul>
-      <div>{{user.date}}</div>
+    <div class="toggler">
+      <Toggle @toggleIssue="toggleIssue"/>
     </div>
+
+    <div :class="['issues', {showIssue: showIssues}]" v-if="showIssues">
+     <Issues :user-issues="user.issues"/>
+    </div>
+    <div class="issues-date">{{user.date}}</div>
+
   </div>
 </template>
 
 <script>
   import UserAvatar from './UserAvatar'
+  import Issues from "./Issues";
+  import Toggle from './Toggle'
+  import Icon from "../icons/Icon";
     export default {
         name: "UserCard",
       props:{
@@ -32,12 +34,20 @@
         },
       },
       components:{
-        UserAvatar
+        UserAvatar,
+        Toggle,
+        Issues,
+        Icon
       },
       data(){
           return{
-            isToggle: false
+            showIssues: false
           }
+      },
+      methods:{
+        toggleIssue(){
+          this.showIssues = !this.showIssues
+        }
       }
     }
 </script>
@@ -57,5 +67,29 @@
     margin-bottom: 18px;
   }
 }
-
+.toggler{
+  margin-bottom: 13px;
+}
+.issues{
+  transition: .5s ease-in-out;
+}
+.showIssue{
+  animation: show-issue 1s ease-in-out;
+}
+.issues-date{
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+}
+@keyframes show-issue{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
 </style>

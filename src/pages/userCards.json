@@ -30,12 +30,12 @@
     "date": "17 may",
     "issues": {
       "0": {
-        "author": "Julia",
-        "body": "Enable performance measuring in production, at the user's request"
+        "author": "Bob",
+        "body": "Some text from Bob"
       },
       "1": {
-        "author": "Mikel",
-        "body": "Lorem  bla bla bla"
+        "author": "Anna",
+        "body": "Anna talks bla bla bla"
       }
     }
   },
@@ -50,12 +50,12 @@
     "date": "14 may",
     "issues": {
       "0": {
-        "author": "Julia",
-        "body": "Enable performance measuring in production, at the user's request"
+        "author": "Alexey",
+        "body": "production, at the user's request Enable performance measuring in"
       },
       "1": {
-        "author": "Mikel",
-        "body": "Lorem  bla bla bla"
+        "author": "Ivan",
+        "body": "Enable performance measuring in roduction, at Lorem  bla bla bla"
       }
     }
   }
