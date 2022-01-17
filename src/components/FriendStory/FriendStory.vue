@@ -1,11 +1,11 @@
 <template>
   <button class="c-friend-story-item" @click="onStoryClick(username)">
-    <FriendStoryAvatar :avatar="avatar" :username="username"/>
+    <FriendStoryAvatar :unSeen="unSeen" :avatar="avatar" :username="username"/>
   </button>
 </template>
 
 <script>
-  import FriendStoryAvatar from "./FriendStoryAvatar";
+  import FriendStoryAvatar from "../FriendStoryAvatar/FriendStoryAvatar";
   export default {
     name: "FriendStory",
     emits: ["storyClick"],
@@ -22,9 +22,15 @@
         required: true
       }
     },
+    data(){
+      return{
+        unSeen: true
+      }
+    },
     methods: {
       onStoryClick(username){
         this.$emit("storyClick", username)
+        this.unSeen = false
       }
     }
   }

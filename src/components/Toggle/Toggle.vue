@@ -1,5 +1,5 @@
 <template>
-  <div :class="['toggle', {active: isOpen}]" @click="toggleIssue">
+  <div :class="['toggle', {active: isOpen}]" @click="toggleClick">
     <div class="toggle-title">{{isOpen ? "Hide issues" : "View issues"}}</div>
     <div class="toggle-icon">
       <Icon name="arrowDown"/>
@@ -8,10 +8,10 @@
 </template>
 
 <script>
-  import Icon from "../icons/Icon";
+  import Icon from "../../icons/Icon";
     export default {
         name: "Toggle",
-        emits: ["toggleIssue"],
+        emits: ["clickOnToggle"],
         components:{
           Icon
         },
@@ -21,9 +21,9 @@
           }
       },
       methods:{
-        toggleIssue(){
+        toggleClick(){
           this.isOpen = !this.isOpen
-          this.$emit('toggleIssue', this.isOpen)
+          this.$emit('clickOnToggle', this.isOpen)
         }
       }
     }

@@ -33,10 +33,10 @@
          </div>
        </template>
 
-       <template #friends>
-         <div class="friends">
-           <ul class="friends__stories">
-             <li class="friends__stories-item"
+       <template #content>
+         <div class="content">
+           <ul class="content__stories">
+             <li class="content__stories-item"
               v-for="story in friendStories"
                  :key="story.username"
              >
@@ -57,19 +57,21 @@
 
   <div class="container">
     <div class="user-cards-list">
-      <ul>
-        <li v-for="user in userInfo"
-            :key="user.username"
-        >
-          <UserCard :user="user">
-            <template #repo>
-              <div class="repo-title">{{user.title}}</div>
-              <div class="repo-subtitle">{{user.subtitle}}</div>
-              <UserStats :stars="user.stars" :forks="user.forks"/>
-            </template>
-          </UserCard>
-        </li>
-      </ul>
+      <div class="container-content">
+        <ul>
+          <li v-for="user in userInfo"
+              :key="user.username"
+          >
+            <UserCard :user="user">
+              <template #repo>
+                <div class="repo-title">{{user.title}}</div>
+                <div class="repo-subtitle">{{user.subtitle}}</div>
+                <UserStats :stars="user.stars" :forks="user.forks"/>
+              </template>
+            </UserCard>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -78,15 +80,15 @@
 </template>
 
 <script>
-import Header from "../components/Header";
-import FriendStory from "../components/FriendStory"
-import Icon from "../icons/Icon"
+import Header from "../../components/Header/Header";
+import FriendStory from "../../components/FriendStory/FriendStory"
+import Icon from "../../icons/Icon"
 
-import friendStories from "./friends.json"
-import userInfo from "./userCards.json"
+import friendStories from "../../ServerData/friends.json"
+import userInfo from "../../ServerData/userCards.json"
 
-import UserCard from "../components/UserCard"
-import UserStats from '../components/UserStats'
+import UserCard from "../../components/UserCard/UserCard"
+import UserStats from '../../components/UserStats/UserStats'
 
 export default {
   name: 'Home',
@@ -147,12 +149,12 @@ export default {
 .user-panel a:not(:last-child){
   margin-right: 24px;
 }
-.friends{
+.content{
   margin-top: 43.5px;
   &__stories{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     &-item:not(:last-child){
       margin-right: 31px;
     }

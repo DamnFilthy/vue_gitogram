@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <li class="issues-issue" v-for="issue in userIssues">
+    <li class="issues-issue" v-for="issue in userIssues" :key="issue.id">
       <span class="issues-author">{{issue.author}}</span>
       <span class="issues-body">{{issue.body}}</span>
     </li>

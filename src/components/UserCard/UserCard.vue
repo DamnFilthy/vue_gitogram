@@ -9,7 +9,7 @@
     </div>
 
     <div class="toggler">
-      <Toggle @toggleIssue="toggleIssue"/>
+      <Toggle @clickOnToggle="toggleClickHandler"/>
     </div>
 
     <div :class="['issues', {showIssue: showIssues}]" v-if="showIssues">
@@ -21,10 +21,10 @@
 </template>
 
 <script>
-  import UserAvatar from './UserAvatar'
-  import Issues from "./Issues";
-  import Toggle from './Toggle'
-  import Icon from "../icons/Icon";
+  import UserAvatar from '../UserAvatar/UserAvatar'
+  import Issues from "../Issues/Issues";
+  import Toggle from '../Toggle/Toggle'
+  import Icon from "../../icons/Icon";
     export default {
         name: "UserCard",
       props:{
@@ -45,7 +45,7 @@
           }
       },
       methods:{
-        toggleIssue(){
+        toggleClickHandler(){
           this.showIssues = !this.showIssues
         }
       }

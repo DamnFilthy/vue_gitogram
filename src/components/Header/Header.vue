@@ -3,8 +3,8 @@
         <slot name="user-panel"></slot>
       </div>
 
-      <div class="friends" v-if="$slots.friends">
-        <slot name="friends"></slot>
+      <div v-if="$slots.content">
+        <slot name="content"></slot>
       </div>
 </template>
 

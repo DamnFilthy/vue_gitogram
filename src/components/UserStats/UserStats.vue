@@ -35,7 +35,7 @@
 </template>
 
 <script>
-  import Icon from "../icons/Icon"
+  import Icon from "../../icons/Icon"
     export default {
         name: "UserStats",
         components:{
@@ -56,10 +56,9 @@
 
 <style lang="scss" scoped>
   .stats{
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 320px;
     border: 1px solid #DADBDC;
     border-radius: 8px;
   }
