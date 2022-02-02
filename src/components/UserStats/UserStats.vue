@@ -54,7 +54,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .stats{
     display: inline-flex;
     align-items: center;

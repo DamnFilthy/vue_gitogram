@@ -113,7 +113,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .header{
   padding-top: 43.5px;
   padding-bottom: 33px;
@@ -161,6 +161,7 @@ export default {
   }
 }
   .user-panel-wrapper{
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;

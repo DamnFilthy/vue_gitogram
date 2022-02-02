@@ -19,7 +19,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .issues{
   &-author{
      margin-right: 8px;

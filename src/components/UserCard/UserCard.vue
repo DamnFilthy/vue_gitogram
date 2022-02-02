@@ -52,7 +52,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .user-card{
   margin-bottom: 24px;
   &-userAvatar{
