@@ -36,5 +36,8 @@
   &-issue:not(:last-child){
      margin-bottom: 6px;
    }
+    &-issue{
+      width: 270px;
+    }
   }
 </style>

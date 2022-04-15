@@ -79,6 +79,7 @@
   overflow: hidden;
 }
 .showIssue{
+  padding: 0 25px;
   max-height: 300px;
 }
 .issues-date{
