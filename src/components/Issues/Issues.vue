@@ -1,21 +1,53 @@
 <template>
-  <ul>
-    <li class="issues-issue" v-for="issue in userIssues" :key="issue.id">
-      <span class="issues-author">{{issue.author}}</span>
-      <span class="issues-body">{{issue.body}}</span>
+  <ul v-if="this.issues !== null">
+    <li class="issues-issue" v-for="issue in issues" :key="issue.id">
+      <span v-if="issue" v-for="item in issue" :key="item.id">
+          <span class="issues-author">{{item.user.login}}</span>
+          <span>{{item.title}}</span>
+          <span class="issues-body">{{item.body}}</span>
+      </span>
     </li>
+
   </ul>
 </template>
 
 <script>
+  import axios from 'axios'
+
     export default {
         name: "Issues",
       props:{
-        userIssues: {
-          type: Object,
+        userLogin: {
+          type: String,
           required: true
         },
+        userName:{
+          type: String,
+          required: true
+        },
+        userId:{
+          type: String,
+          required: true
+        }
       },
+      data(){
+          return{
+            issues: null
+          }
+      },
+      computed:{
+        issuesLink(){
+          return `https://api.github.com/repos/${this.userLogin}/${this.userName}/issues?id=${this.userId}`
+        }
+      },
+      async created(){
+          try {
+            axios.get(this.issuesLink)
+              .then(response => this.issues = response)
+          } catch(e){
+            console.log(e)
+          }
+      }
     }
 </script>
 

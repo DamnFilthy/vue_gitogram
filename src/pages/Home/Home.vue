@@ -59,14 +59,14 @@
     <div class="user-cards-list">
       <div class="container-content">
         <ul>
-          <li v-for="user in userInfo"
-              :key="user.username"
+          <li v-for="user in this.data"
+              :key="user.id"
           >
             <UserCard :user="user">
               <template #repo>
-                <div class="repo-title">{{user.title}}</div>
-                <div class="repo-subtitle">{{user.subtitle}}</div>
-                <UserStats :stars="user.stars" :forks="user.forks"/>
+                <div class="repo-title">{{user.name}}</div>
+                <div class="repo-subtitle">{{user.description}}</div>
+                <UserStats :stars="user.stargazers_count" :forks="user.forks_count"/>
               </template>
             </UserCard>
           </li>
@@ -75,20 +75,22 @@
     </div>
   </div>
 
-
+<pre>{{this.data}}</pre>
 </div>
 </template>
 
 <script>
-import Header from "../../components/Header/Header";
-import FriendStory from "../../components/FriendStory/FriendStory"
-import Icon from "../../icons/Icon"
+import Header from "@/components/Header/Header";
+import FriendStory from "@/components/FriendStory/FriendStory"
+import Icon from "@/icons/Icon"
 
-import friendStories from "../../ServerData/friends.json"
-import userInfo from "../../ServerData/userCards.json"
+import friendStories from "@/ServerData/friends.json"
+import userInfo from "@/ServerData/userCards.json"
 
-import UserCard from "../../components/UserCard/UserCard"
-import UserStats from '../../components/UserStats/UserStats'
+import UserCard from "@/components/UserCard/UserCard"
+import UserStats from '@/components/UserStats/UserStats'
+
+import {getTrendings} from "@/api/rest/trandings";
 
 export default {
   name: 'Home',
@@ -102,13 +104,22 @@ export default {
   data(){
     return{
       friendStories,
-      userInfo
+      userInfo,
+      data: null
     }
   },
   methods:{
     storyHandler(username){
       console.log(username)
     }
+  },
+  async created(){
+   try {
+    const {data} = await getTrendings()
+     this.data = data.items
+   } catch(e){
+     console.log(e)
+   }
   }
 }
 </script>

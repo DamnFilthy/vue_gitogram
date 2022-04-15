@@ -12,7 +12,7 @@
       </div>
 
         <div class="star-block-value">
-          {{stars}}k
+          {{stars}}
         </div>
     </div>
 

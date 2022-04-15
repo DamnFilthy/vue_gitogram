@@ -1,7 +1,7 @@
 <template>
   <div class="user-card">
     <div class="user-card-userAvatar">
-      <UserAvatar :username="user.username" :userphoto="user.userphoto"/>
+      <UserAvatar :username="user.owner.login" :userphoto="user.owner.avatar_url"/>
     </div>
 
     <div class="user-card-stats">
@@ -13,9 +13,9 @@
     </div>
 
     <div :class="['issues', {showIssue: showIssues}]">
-     <Issues :user-issues="user.issues"/>
+     <Issues :user-login="user.owner.login" :user-name="user.name" :user-id="user.id"/>
     </div>
-    <div class="issues-date">{{user.date}}</div>
+    <div class="issues-date">{{user.created_at}}</div>
 
   </div>
 </template>
@@ -48,7 +48,7 @@
         toggleClickHandler(){
           this.showIssues = !this.showIssues
         }
-      }
+      },
     }
 </script>
 
