@@ -47,10 +47,20 @@ button{
 }
 
 .container{
-  width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  padding: 0 30px;
 }
 .container-content{
-  width: 980px;
-  margin: 0 auto;
+  width: 100%;
+}
+@media (max-width: 390px){
+  .container{
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 330px){
+  .container{
+    padding: 0 5px;
+  }
 }

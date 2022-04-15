@@ -152,11 +152,16 @@ export default {
 .content{
   margin-top: 43.5px;
   &__stories{
+    padding-bottom: 20px;
+    overflow-y: hidden;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     &-item:not(:last-child){
       margin-right: 31px;
+    }
+    &-item{
+      flex-shrink: 0;
     }
   }
 }
@@ -179,5 +184,21 @@ export default {
     line-height: 160%;
     color: #404040;
     margin-bottom: 32px;
+  }
+  @media (max-width: 925px){
+    .content{
+      &__stories{
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  @media (max-width: 370px){
+    .logo-gitogram{
+      display: none;
+    }
+    .user-panel-wrapper{
+      justify-content: center;
+    }
   }
 </style>

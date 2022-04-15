@@ -12,7 +12,7 @@
       <Toggle @clickOnToggle="toggleClickHandler"/>
     </div>
 
-    <div :class="['issues', {showIssue: showIssues}]" v-if="showIssues">
+    <div :class="['issues', {showIssue: showIssues}]">
      <Issues :user-issues="user.issues"/>
     </div>
     <div class="issues-date">{{user.date}}</div>
@@ -54,6 +54,8 @@
 
 <style lang="scss">
 .user-card{
+  width: 350px;
+  margin: 0 auto;
   margin-bottom: 24px;
   &-userAvatar{
     margin-bottom: 16px;
@@ -71,10 +73,13 @@
   margin-bottom: 13px;
 }
 .issues{
-  transition: .5s ease-in-out;
+  transition: .9s ease-in-out;
+  height: auto;
+  max-height: 0;
+  overflow: hidden;
 }
 .showIssue{
-  animation: show-issue 1s ease-in-out;
+  max-height: 300px;
 }
 .issues-date{
   margin-top: 10px;
@@ -84,12 +89,13 @@
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.4);
 }
-@keyframes show-issue{
-  0%{
-    opacity: 0;
+  @media (max-width: 367px){
+    .user-card{
+      width: 315px;
+      margin-bottom: 30px;
+    }
+    .user-card-stats {
+      padding: 24px 0 24px 9px;
+    }
   }
-  100%{
-    opacity: 1;
-  }
-}
 </style>
