@@ -1,10 +1,10 @@
 <template>
   <ul v-if="this.issues !== null">
     <li class="issues-issue" v-for="issue in issues" :key="issue.id">
-      <span v-if="issue" v-for="item in issue" :key="item.id">
-          <span class="issues-author">{{item.user.login}}</span>
-          <span>{{item.title}}</span>
-          <span class="issues-body">{{item.body}}</span>
+      <span v-if="issue" v-for="(item, index) in issue" :key="index">
+          <span class="issues-author">{{item}}</span>
+<!--          <span>{{item.title}}</span>-->
+<!--          <span class="issues-body">{{item.body}}</span>-->
       </span>
     </li>
 

@@ -56,6 +56,15 @@
  </div>
 
   <div class="container">
+    <Slide
+      @story-click="storyHandler"
+      avatar="https://picsum.photos/300/300"
+      username="Alex Xela"
+      default-text="hello"
+      hover-text="goodbye"
+      un-seen="true"
+      slideText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci assumenda atque, beatae dolor eveniet harum hic iste labore laborum maxime, nihil quibusdam quis ratione repellat temporibus ut vel! Aperiam."
+    />
     <div class="user-cards-list">
       <div class="container-content">
         <ul>
@@ -80,17 +89,19 @@
 </template>
 
 <script>
-import Header from "@/components/Header/Header";
-import FriendStory from "@/components/FriendStory/FriendStory"
-import Icon from "@/icons/Icon"
+import Header from "../../components/Header/Header";
+import FriendStory from "../../components/FriendStory/FriendStory"
+import Icon from "../../icons/Icon"
 
-import friendStories from "@/ServerData/friends.json"
-import userInfo from "@/ServerData/userCards.json"
+import friendStories from "../../ServerData/friends.json"
+import userInfo from "../../ServerData/userCards.json"
 
-import UserCard from "@/components/UserCard/UserCard"
-import UserStats from '@/components/UserStats/UserStats'
+import UserCard from "../../components/UserCard/UserCard"
+import UserStats from '../../components/UserStats/UserStats'
 
-import {getTrendings} from "@/api/rest/trandings";
+import Slide from "../../components/Slide/Slide";
+
+import {getTrendings} from "../../api/rest/trandings";
 
 export default {
   name: 'Home',
@@ -99,7 +110,8 @@ export default {
     FriendStory,
     Icon,
     UserCard,
-    UserStats
+    UserStats,
+    Slide
   },
   data(){
     return{

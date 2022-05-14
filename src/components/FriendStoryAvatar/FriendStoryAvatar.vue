@@ -27,7 +27,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .avatar img{
     background-color: #fff;
     padding: 3px;
